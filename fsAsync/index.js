@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-// Asynchronous Way
+// synchronous Way
 
 // ######### Make a File ##########
 
