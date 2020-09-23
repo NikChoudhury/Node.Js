@@ -47,3 +47,12 @@ Twitter: [@NikChoudhury](https://twitter.com/NikChoudhury)
 </ul>
 
 <hr>
+
+
+# pathModule
+<p>The path module provides utilities for working with file and directory paths. </p>
+<br>
+
+[Node.js_path](https://nodejs.org/api/path.html#path_path_delimiter)
+
+<hr>
