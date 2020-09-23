@@ -36,14 +36,14 @@ Twitter: [@NikChoudhury](https://twitter.com/NikChoudhury)
 <p>The os module provides operating system-related utility methods and properties. </p>
 <p>Usefull Links</p>
 
-[Node.js_os](https://nodejs.org/api/os.html#os_os_freemem)
+
 <br>
 
 [How_to_usenetworkInterfaces_functioninos](https://www.codota.com/code/javascript/functions/os/networkInterfaces)
 
-<ol>
-    <li>1</li>
-    <li>2</li>
-</ol>
+<ul>
+    <li>[Node.js_os](https://nodejs.org/api/os.html#os_os_freemem)</li>
+    <li>[How_to_usenetworkInterfaces_functioninos](https://www.codota.com/code/javascript/functions/os/networkInterfaces)</li>
+</ul>
 
 <hr>
