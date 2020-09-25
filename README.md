@@ -153,3 +153,69 @@ const jsonData = JSON.stringify(bioData);
 [JSON_w3School](https://www.w3schools.com/js/js_json_intro.asp)
 
 <hr>
+
+# userApi
+
+<p>An application programming interface (API) is a computing interface which defines interactions between multiple software intermediaries. It defines the kinds of calls or requests that can be made, how to make them, the data formats that should be used, the conventions to follow, etc.</p>
+
+
+<p>Create userApi.json file first.....</p>
+
+```json
+    [
+    {
+        "id": 1,
+        "firstname": "Nikumani",
+        "lastname": "Choudhury",
+        "email": "nik@gmail.com",
+        "address":{
+            "vill/town":"Paltan Bazar",
+            "PO":"Guwahati",
+            "PS":"Guwahati",
+            "dist":"Barpeta",
+            "state":"Assam",
+            "country":"India",
+            "pin":781317
+        },
+        "language":"Assamese",
+        "Phone":1234567890
+    },
+    {
+        "id": 2,
+        "firstname": "Nayan",
+        "lastname": "Nath",
+        "email": "nayan@gmail.com",
+        "address":{
+            "vill/town":"Bhatarmari",
+            "PO":"Salbari",
+            "PS":"Pathsala",
+            "dist":"Baksa",
+            "state":"Assam",
+            "country":"India",
+            "pin":781318
+        },
+        "language":"Bodo",
+        "Phone":1234567895
+    },
+    {
+        "id": 3,
+        "firstname": "Saurav",
+        "lastname": "Nath",
+        "email": "aalu@gmail.com",
+        "address":{
+            "vill/town":"Santinagar",
+            "PO":"Barpeta Road",
+            "PS":"Barpeta Road",
+            "dist":"Barpeta",
+            "state":"Assam",
+            "country":"India",
+            "pin":781316
+        },
+        "language":"English",
+        "Phone":123456558
+    }
+]
+```
+
+<br>
+<hr>
