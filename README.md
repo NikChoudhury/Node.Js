@@ -266,9 +266,9 @@ error − This event is fired when there is any error receiving or writing data.
 finish − This event is fired when all the data has been flushed to underlying system.</p>
 
 
-***
+* * *
  The 'pipe' event is emitted when the stream.pipe() method is called on a readable stream, adding this writable to its set of destinations.
-***
+* * *
 
 
 
