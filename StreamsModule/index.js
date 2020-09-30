@@ -18,16 +18,24 @@ server.on('request',(req, res)=>{
     // }); 
 
     // 2nd way With stream
-    const rstream = fs.createReadStream('read.txt');
+    // const rstream = fs.createReadStream('read.txt');
     
-    rstream.on('data',(chunkdata)=>{
+    // rstream.on('data',(chunkdata)=>{
         
-        res.write (chunkdata);
+    //     res.write (chunkdata);
         
-    })
-    rstream.on('end',()=>{
-        res.end();
-    })
+    // })
+    // rstream.on('end',()=>{
+    //     res.end();
+    // })
+
+
+    // 3rd way With stream Pipe Method
+
+    // The 'pipe' event is emitted when the stream.pipe() method is called on a readable stream,
+    //  adding this writable to its set of destinations.
+    const rstream = fs.createReadStream('read.txt');
+    rstream.pipe(res);
 
     // If there is an error or file is not exist
     rstream.on('error',(err)=>{
