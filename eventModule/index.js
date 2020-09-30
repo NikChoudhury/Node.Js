@@ -18,4 +18,4 @@ event.on('checkPage',(statusCode,msg)=>{
     console.log(`Status Code = ${statusCode} and Message is ${msg}`)
 });
 
-event.emit('checkPage',200,'OK')
+event.emit('checkPage',200,'OK');
