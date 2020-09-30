@@ -219,3 +219,28 @@ const jsonData = JSON.stringify(bioData);
 
 <br>
 <hr>
+
+# eventModule
+<p>Every action on a computer is an event. Like when a connection is made or a file is opened.
+Node.js has a built-in module, called "Events", where you can create-, fire-, and listen for- your own events.
+
+To include the built-in Events module use the require() method. In addition, all event properties and methods are an instance of an EventEmitter object. To be able to access these properties and methods, create an EventEmitter object:</p>
+
+```javascript
+    const EventEmitter = require('events');
+    const event = new EventEmitter();
+```
+
+<br>
+
+[Offical_Website](https://nodejs.org/api/events.html)
+<br>
+
+[W3SCHOOL events module](https://www.w3schools.com/nodejs/nodejs_events.asp)
+
+<br>
+
+[TutorialsPoits events module](https://www.tutorialspoint.com/nodejs/nodejs_event_emitter.htm)
+
+
+<hr>
