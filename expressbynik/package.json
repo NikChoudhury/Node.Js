@@ -1,0 +1,14 @@
+{
+  "name": "expressbynik",
+  "version": "1.0.0",
+  "description": "Express Js By Nik",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikumani Choudhury",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
