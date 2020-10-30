@@ -311,3 +311,31 @@ finish − This event is fired when all the data has been flushed to underlying 
 
 
 <hr>
+
+# Express.js template engines
+<p>A template engine enables you to use static template files in your application. At runtime, the template engine replaces variables in a template file with actual values, and transforms the template into an HTML file sent to the client. This approach makes it easier to design an HTML page.
+
+Some popular template engines that work with Express are Pug, Mustache, hbs and EJS. The Express application generator uses Jade as its default, but it also supports several others.
+
+        Express.js view engine for handlebars.js
+
+Using hbs as the default view engine requires just one line of code in your app setup. This will render .hbs files when res.render is called.
+
+        app.set('view engine', 'hbs');
+</p>
+
+
+
+[Offical_Website](https://expressjs.com/en/guide/using-template-engines.html)
+<br>
+
+[hbs](https://www.npmjs.com/package/hbs)
+<br>
+
+[pug](https://www.npmjs.com/package/pug)
+
+
+
+
+
+<hr>
