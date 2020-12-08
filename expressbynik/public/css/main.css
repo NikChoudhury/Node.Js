@@ -40,12 +40,12 @@ section.article article p{
 
 section.footer{
     margin-top: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 20rem;
     text-align: center;
     background: cyan;
+}
+section.footer h1{
+    line-height: 20rem;
 }
 
 
