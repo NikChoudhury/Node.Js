@@ -1,0 +1,16 @@
+{
+  "name": "mongooseexpress",
+  "version": "1.0.0",
+  "description": "Mongoose Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.js -e js,hbs"
+  },
+  "author": "Nikumani Choudhury",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.5"
+  }
+}

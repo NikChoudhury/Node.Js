@@ -1,0 +1,16 @@
+{
+  "name": "mongopractice",
+  "version": "1.0.0",
+  "description": "Mongoos Practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.js -e hbs,js"
+  },
+  "keywords": [],
+  "author": "Nikumani Choudhury",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^5.11.5"
+  }
+}
