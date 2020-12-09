@@ -1,4 +1,7 @@
 // Importing
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 8080;
 const mongoose = require('mongoose');
 const dbURL = 'mongodb://localhost:27017/my_database';
 
@@ -53,6 +56,54 @@ const createDocument = async ()=>{
         console.log(error);
     }
 }
-createDocument();
+// createDocument();
 
 
+//Find Data base
+// Method One
+
+// Method Two
+// const findDatabase = async()=>{
+//     try {
+//         const results = await MyModel.find().exec();
+//         return next(results)
+//     } catch (error) {
+//         console.log(error) ;
+//     }
+// }
+// const x = findDatabase()
+// console.log(x)
+
+
+const data = MyModel.find().then((result) => {
+    
+    const results = result;
+    // console.log(`${results}`);
+    console.log(results);
+   
+}).catch((err) => {
+    throw err;
+});
+
+
+
+
+
+
+
+// Routing
+app.get("/",async(req,res)=>{
+
+        try {
+            const results = await MyModel.find();
+            res.send(`${results}`);
+            res.end();
+        } catch (error) {
+            console.log(error) ;
+        }
+    
+})
+
+app.listen(port,()=>{
+    console.log(`Your app is listen on http://localhost:${port}`);
+})

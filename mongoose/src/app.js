@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const port = process.env.PORT || 5500;
 
-// Connent Mongoose Or Create Database if not Exist
+//############ Connent Mongoose Or Create Database if not Exist ################
 mongoose.connect('mongodb://localhost:27017/my_database', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -15,7 +15,7 @@ mongoose.connect('mongodb://localhost:27017/my_database', {
     console.log(err);
 });
 
-//Define or Create Schema
+//################ Define or Create Schema ################
 const playlistSchema=new mongoose.Schema({
    name:{
        type:String,
@@ -31,10 +31,10 @@ const playlistSchema=new mongoose.Schema({
    } 
 });
 
-// Define Model or Collections Creation
+// ################ Define Model or Collections Creation ################
 const Playlist = new mongoose.model("Playlist",playlistSchema);
 
-//Create Document or insert
+//################ Create or insert Document ################
 const createDocument = async () =>{
     try {
         const coursePlaylist = new Playlist({
@@ -56,11 +56,88 @@ const createDocument = async () =>{
 // createDocument();
 
 
+//################ Create or insert Multipile Documents ################
+const createMultipleDocument = async () =>{
+    try {
+        const jsPlaylist = new Playlist({
+            name:"JavaScripts",
+            ctype: "Front End",
+            videos: 155,
+            author: "Nikumani Choudhury",
+            active: true
+        });
+        const sqlPlaylist = new Playlist({
+            name:"SQL",
+            ctype: "Database",
+            videos: 20,
+            author: "Nikumani Choudhury",
+            active: false
+        });
+        const mongoPlaylist = new Playlist({
+            name:"MongoDB",
+            ctype: "Database",
+            videos: 30,
+            author: "Nikumani Choudhury",
+            active: true
+        });
+        
+        const result = await Playlist.insertMany([jsPlaylist,sqlPlaylist,mongoPlaylist]);
+        console.log(result);
+    } catch (err) {
+        console.log(err);
+    }
+ 
+}
+// createMultipleDocument();
 
 
-// Routing
-app.get("/",(req,res)=>{
-    res.send("Hello World!")
+// ################ Read Documents ################
+
+// Method 1
+const readDocument = async()=>{
+    try {
+        const result = await Playlist.find({
+            ctype:"Front End",
+            
+        },{
+            _id:0
+            ,name:1
+        });
+        console.log(result);
+    } catch (error) {
+        throw error;
+    }
+}
+
+// readDocument();
+
+// Method 2
+const data = Playlist.find().limit(5).then((result) => {
+    const results = result;
+    console.log(results);
+}).catch((err) => {
+    throw err;
+});
+
+
+
+
+
+
+// ################ Routing ################
+app.get("/",async(req,res)=>{
+    try {
+        const result = await Playlist.find({
+            ctype:"Front End",
+            active:true
+        },{
+            _id:0,
+            _v:0
+        });
+        res.send(result);  
+    } catch (error) {
+        throw error;
+    }
 })
 
 app.listen(port,()=>{
