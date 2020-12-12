@@ -112,16 +112,43 @@ const readDocument = async()=>{
 // readDocument();
 
 // Method 2
-const data = Playlist.find().limit(5).then((result) => {
-    const results = result;
-    console.log(results);
-}).catch((err) => {
-    throw err;
-});
+// const data = Playlist.find().limit(5).then((result) => {
+//     const results = result;
+//     console.log(results);
+// }).catch((err) => {
+//     throw err;
+// });
 
 
+// ################ Query-comparison an Logical Oprator ################
+const queryDocument = async()=>{
+    try {
+        const result = await Playlist.find({
+            // videos:{
+            //     $eq:50
+            // }
+            // videos:{
+            //     $gte:30
+            // },
+            // ctype:{
+            //     $in:["Back End", "Database"]
+            // }
+            $nor:[
+                {videos:{
+                    $gte:50
+                }},{
+                    ctype:"Back End"
+                }
+            ]
+        });
+        console.log(result)
+        
+    } catch (error) {
+        throw error;
+    }
+}
 
-
+queryDocument()
 
 
 // ################ Routing ################
