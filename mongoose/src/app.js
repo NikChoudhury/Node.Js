@@ -124,6 +124,7 @@ const readDocument = async()=>{
 const queryDocument = async()=>{
     try {
         const result = await Playlist.find({
+            ///////////////// Comparison Oprator  ////////////////////
             // videos:{
             //     $eq:50
             // }
@@ -133,14 +134,21 @@ const queryDocument = async()=>{
             // ctype:{
             //     $in:["Back End", "Database"]
             // }
+            ///////////////// Logical Oprator  ////////////////////
             $nor:[
                 {videos:{
-                    $gte:50
+                    $lt:50
                 }},{
-                    ctype:"Back End"
+                    ctype:"Database"
                 }
             ]
-        });
+        }).select({
+            _id:0,
+            name:1,
+            ctype:1,
+            videos:1
+        }).sort({name: 1}) // 1 -> Ascending and -1 -> Descending
+        // .countDocuments(); ---> Count Number of Documents
         console.log(result)
         
     } catch (error) {
@@ -148,7 +156,52 @@ const queryDocument = async()=>{
     }
 }
 
-queryDocument()
+// queryDocument()
+
+// ################ Update Documents ################
+// query.findOneAndUpdate(conditions, update, options, callback)
+// /// Method One
+const updateDocumentMethodOne= async (name)=>{
+    try {
+        const result = await Playlist.update({name},{
+            $set:{
+                videos: 65
+            }
+        });
+        console.log(result);
+    } catch (error) {   
+        throw error;
+    }
+}
+
+// updateDocumentMethodOne("React JS");
+
+/// Method two
+const updateDocumentMethodTwo = async(id)=>{
+    try {
+        const result = await Playlist.findOneAndUpdate({_id:id},
+            {
+                $set:{
+                    videos: 45
+                }
+            },{
+            new:true,
+            useFindAndModify: false
+        }).select(
+            {
+                date:0,
+                __v:0,
+                author:0,
+                active:0
+            }
+        )
+        console.log(result)
+    } catch (error) {
+        console.log(error)
+    }
+}
+updateDocumentMethodTwo("5fcf71637c89ee23845139f8")
+
 
 
 // ################ Routing ################
