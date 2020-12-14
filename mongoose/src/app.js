@@ -239,14 +239,23 @@ const deleteDocumentsMethodTwo= async(_id)=>{
 // ################ Routing ################
 app.get("/",async(req,res)=>{
     try {
-        const result = await Playlist.find({
-            ctype:"Front End",
-            active:true
+        const result = await Playlist.find(/*{
+             ctype:"Front End",
+             active:true
         },{
             _id:0,
             _v:0
-        });
-        res.send(result);  
+        }*/).select(
+            {
+                _id:0,
+                __v:0
+            }
+        ).sort(
+            {
+                name: 1
+            }
+        );
+        res.status(200).send(result);  
     } catch (error) {
         throw error;
     }
