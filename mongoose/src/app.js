@@ -38,7 +38,7 @@ const Playlist = new mongoose.model("Playlist",playlistSchema);
 const createDocument = async () =>{
     try {
         const coursePlaylist = new Playlist({
-            name:"React JS",
+            name:"React JSXd",
             ctype: "Front End",
             videos: 55,
             author: "Nikumani Choudhury",
@@ -200,8 +200,40 @@ const updateDocumentMethodTwo = async(id)=>{
         console.log(error)
     }
 }
-updateDocumentMethodTwo("5fcf71637c89ee23845139f8")
+// updateDocumentMethodTwo("5fcf71637c89ee23845139f8");
 
+
+
+
+// ################ Delete Documents ################
+//method one
+const deleteDocumentsMethodOne = async(_id)=>{
+    try {
+        const result = await Playlist.deleteOne({_id});
+        console.log(result);
+        // if (result.n != 0) {
+        //     console.log("Delete Opration Successful!!");
+        // }else{
+        //     console.log("Delete Opration Unsuccessful!!");
+        // }
+    } catch (error) {
+        throw error
+    }
+}
+// deleteDocumentsMethodOne("5fd7c8cb8807402a2c550412");
+
+
+//Method Two
+const deleteDocumentsMethodTwo= async(_id)=>{
+    try {
+        const result = await Playlist.findByIdAndDelete({_id});
+        console.log(result);
+
+    } catch (error) {
+        throw error;
+    }
+}
+// deleteDocumentsMethodTwo("5fd7c7984897352010541332");
 
 
 // ################ Routing ################
