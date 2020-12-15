@@ -19,9 +19,19 @@ mongoose.connect('mongodb://localhost:27017/my_database', {
 const playlistSchema=new mongoose.Schema({
    name:{
        type:String,
-       required:true
+       required:true, // validator
+       unique:true,//Not a Validator but act as validator
+       uppercase:true,//uppercase:boolean, whether to always call .toUpperCase() on the value
+       trim:true,//trim: boolean, whether to always call .trim() on the value
+       minlength:[2, "Minimum 2 Letters"], //minLength: Number, creates a validator that checks if the value length is not less than the given number
+       maxlength:[30,"Maximum 30 Letters"] //maxLength: Number, creates a validator that checks if the value length is not greater than the given number
     },
-   ctype:String,
+   ctype:{
+       type:String,
+       required:true,
+       uppercase:true,
+       enum:["FRONT END","BACK END","DATABASE"] //enum: Array, creates a validator that checks if the value is in the given array.
+   },
    videos:Number,
    author:String,
    active:Boolean,
@@ -38,7 +48,7 @@ const Playlist = new mongoose.model("Playlist",playlistSchema);
 const createDocument = async () =>{
     try {
         const coursePlaylist = new Playlist({
-            name:"React JSXd",
+            name:"React JS",
             ctype: "Front End",
             videos: 55,
             author: "Nikumani Choudhury",
@@ -53,7 +63,7 @@ const createDocument = async () =>{
  
 }
 
-// createDocument();
+createDocument();
 
 
 //################ Create or insert Multipile Documents ################
