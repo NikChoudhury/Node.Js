@@ -32,7 +32,24 @@ const playlistSchema=new mongoose.Schema({
        uppercase:true,
        enum:["FRONT END","BACK END","DATABASE"] //enum: Array, creates a validator that checks if the value is in the given array.
    },
-   videos:Number,
+   videos:{
+       type:Number,
+        // Custom validation Method One
+
+       validate(value){ /*User Input Value*/
+            if (value<0) {
+                throw new Error("Videos Count Should not be Negative");
+            }
+       }
+
+        // Method Two
+        // validate:{
+        //     validator:function(value){
+        //         return value.length < 0
+        //     },
+        //     message:"Videos Count Should not be Negative"
+        // }
+   },
    author:String,
    active:Boolean,
    date:{
@@ -48,9 +65,9 @@ const Playlist = new mongoose.model("Playlist",playlistSchema);
 const createDocument = async () =>{
     try {
         const coursePlaylist = new Playlist({
-            name:"React JS",
+            name:"React JSS",
             ctype: "Front End",
-            videos: 55,
+            videos: -5,
             author: "Nikumani Choudhury",
             active: true
         });
