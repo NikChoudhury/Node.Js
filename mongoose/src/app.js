@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+var validator = require('validator');
 const port = process.env.PORT || 5500;
 
 //############ Connent Mongoose Or Create Database if not Exist ################
@@ -51,6 +52,19 @@ const playlistSchema=new mongoose.Schema({
         // }
    },
    author:String,
+   authormail:{
+        type:String,
+        default:null,
+        // NPM validator 
+        validate(value){
+            if (value!=null) {
+                if (!validator.isEmail(value)) {
+                    throw new Error("Email is Invaild !!")
+                }  
+            }
+        }
+        
+   },
    active:Boolean,
    date:{
        type:Date,
@@ -65,10 +79,11 @@ const Playlist = new mongoose.model("Playlist",playlistSchema);
 const createDocument = async () =>{
     try {
         const coursePlaylist = new Playlist({
-            name:"React JSS",
+            name:"React JSX",
             ctype: "Front End",
-            videos: -5,
+            videos: 5,
             author: "Nikumani Choudhury",
+            authormail:"dhhdhhd",
             active: true
         });
         
