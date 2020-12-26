@@ -1,3 +1,17 @@
-h1 {
-  color: yellow;
+@import "mixin";
+@import "variable";
+@import "fonts";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+html,
+body {
+  font-size: 62.5%;
+  font-family: $font-five;
+}
+// Header-Navbar
+@import "header";
+
+@import "media";
