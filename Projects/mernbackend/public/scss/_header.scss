@@ -1,17 +1,100 @@
 header.main-header {
+  position: relative;
   width: 100%;
   height: 100vh;
   background: url(../images/header-bg.jpg);
-  background-position: center;
+  // background-position: center;
+  background-position: right;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   font-size: 1.8rem;
-  .navbar-brand {
-    font-size: 2.2rem;
-    font-family: $font-three;
-    img {
-      width: 40rem;
-    }
+  z-index: 1;
+}
+header.main-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  z-index: -1;
+}
+
+// Navbar
+.navbar-brand {
+  font-size: 2.2rem;
+  font-family: $font-three;
+  img {
+    width: 40rem;
   }
+}
+ul.navbar-nav li a {
+  position: relative;
+  margin: 0.2rem 0.8rem;
+  padding-bottom: 0.5rem;
+  text-decoration: none;
+  letter-spacing: 0.3rem;
+  font-weight: 700;
+  font-family: $font-five;
+  color: #ffffff;
+  z-index: 0;
+}
+
+ul.navbar-nav li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 0.4rem;
+  border-radius: 1rem;
+  background-color: red;
+  transition: all 0.5s linear;
+}
+ul.navbar-nav li a:hover::after {
+  width: 100%;
+  background-color: #fbc531;
+}
+
+.burger {
+  width: 3rem;
+  height: 0.5rem;
+  background-color: #ffffff;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  border-radius: 1rem;
+}
+
+.burger::after,
+.burger::before {
+  content: "";
+  width: 3rem;
+  height: 0.5rem;
+  background-color: #ffffff;
+  position: absolute;
+  border-radius: 1rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.burger::before {
+  transform: translateY(-1rem);
+}
+
+.burger::after {
+  transform: translateY(1rem);
+}
+
+.burgerBtn.open .burger {
+  transform: translateX(-5rem);
+  background: transparent;
+}
+
+.burgerBtn.open .burger::before {
+  transform: rotate(45deg) translate(3.5rem, -3.5rem);
+}
+
+.burgerBtn.open .burger::after {
+  transform: rotate(-45deg) translate(3.5rem, 3.5rem);
 }

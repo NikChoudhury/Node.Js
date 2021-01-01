@@ -5,13 +5,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 html,
 body {
   font-size: 62.5%;
   font-family: $font-five;
 }
+
 // Header-Navbar
 @import "header";
 
+// Hero Content
+@import "hero";
+
+// Media Screen
 @import "media";

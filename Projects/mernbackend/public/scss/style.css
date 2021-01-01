@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Alfa+Slab+One&family=Frijole&family=Langar&family=Luckiest+Guy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Playfair+Display+SC:wght@700&display=swap");
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html,
@@ -13,23 +15,219 @@ body {
 }
 
 header.main-header {
+  position: relative;
   width: 100%;
   height: 100vh;
   background: url(../images/header-bg.jpg);
-  background-position: center;
+  background-position: right;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   font-size: 1.8rem;
+  z-index: 1;
 }
 
-header.main-header .navbar-brand {
+header.main-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+.navbar-brand {
   font-size: 2.2rem;
   font-family: "Frijole", cursive;
 }
 
-header.main-header .navbar-brand img {
+.navbar-brand img {
   width: 40rem;
+}
+
+ul.navbar-nav li a {
+  position: relative;
+  margin: 0.2rem 0.8rem;
+  padding-bottom: 0.5rem;
+  text-decoration: none;
+  letter-spacing: 0.3rem;
+  font-weight: 700;
+  font-family: "ABeeZee", sans-serif;
+  color: #ffffff;
+  z-index: 0;
+}
+
+ul.navbar-nav li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 0.4rem;
+  border-radius: 1rem;
+  background-color: red;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+ul.navbar-nav li a:hover::after {
+  width: 100%;
+  background-color: #fbc531;
+}
+
+.burger {
+  width: 3rem;
+  height: 0.5rem;
+  background-color: #ffffff;
+  position: relative;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  border-radius: 1rem;
+}
+
+.burger::after,
+.burger::before {
+  content: "";
+  width: 3rem;
+  height: 0.5rem;
+  background-color: #ffffff;
+  position: absolute;
+  border-radius: 1rem;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.burger::before {
+  -webkit-transform: translateY(-1rem);
+          transform: translateY(-1rem);
+}
+
+.burger::after {
+  -webkit-transform: translateY(1rem);
+          transform: translateY(1rem);
+}
+
+.burgerBtn.open .burger {
+  -webkit-transform: translateX(-5rem);
+          transform: translateX(-5rem);
+  background: transparent;
+}
+
+.burgerBtn.open .burger::before {
+  -webkit-transform: rotate(45deg) translate(3.5rem, -3.5rem);
+          transform: rotate(45deg) translate(3.5rem, -3.5rem);
+}
+
+.burgerBtn.open .burger::after {
+  -webkit-transform: rotate(-45deg) translate(3.5rem, 3.5rem);
+          transform: rotate(-45deg) translate(3.5rem, 3.5rem);
+}
+
+.heroContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 75vh;
+  position: relative;
+}
+
+.heroContent p.header-text {
+  color: #ffffff;
+  margin: 0;
+  font-size: 50px;
+  font-family: "Alfa Slab One", cursive;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.heroContent p.header-text span {
+  color: #ecf0f1;
+  letter-spacing: 0.2rem;
+  text-shadow: 0.5rem 0.2rem 0.1rem #17c0eb;
+}
+
+@media only screen and (max-width: 767px) {
+  .heroContent p.header-text {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .heroContent p.header-text {
+    font-size: 20px;
+  }
+}
+
+.heroContent h2 {
+  color: #ffffff;
+  font-size: 3rem;
+  font-family: "Playfair Display SC", serif;
+}
+
+.heroContent p.typing-text {
+  position: relative;
+  color: #fff200;
+  margin: 0;
+  font-size: 3.1rem;
+  font-family: "Audiowide", cursive;
+  text-transform: uppercase;
+}
+
+.heroContent p.typing-text #typewriter {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  color: #ff3838;
+}
+
+.heroContent p.typing-text #typewriter:before {
+  content: attr(data-text);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 1;
+  left: 0;
+  color: #fff200;
+  -webkit-animation: slide 3s steps(9) infinite;
+          animation: slide 3s steps(9) infinite;
+  overflow: hidden;
+}
+
+@-webkit-keyframes slide {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+@keyframes slide {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
 }
 
 @media only screen and (max-width: 600px) {
