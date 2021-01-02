@@ -23,6 +23,9 @@ header.main-header::after {
 }
 
 // Navbar
+nav {
+  z-index: 1000;
+}
 .navbar-brand {
   font-size: 2.2rem;
   font-family: $font-three;
