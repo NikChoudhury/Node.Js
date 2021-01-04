@@ -1,0 +1,70 @@
+section.skill {
+  background-color: #ecf0f1;
+  padding: 7.5rem 0.5rem;
+  .left-div {
+    padding: 1.5rem;
+    h1 {
+      font-family: $font-five;
+      font-size: 4.5rem;
+      color: #111111;
+    }
+    p {
+      font-size: 2rem;
+      letter-spacing: 0.2rem;
+      text-align: justify;
+    }
+  }
+
+  .right-div {
+    padding: 1.5rem;
+    h1 {
+      font-family: $font-five;
+      font-size: 4.5rem;
+      color: #111111;
+    }
+    p {
+      font-size: 2rem;
+      letter-spacing: 0.2rem;
+      word-spacing: 0.3rem;
+      text-align: justify;
+      margin-bottom: 0;
+    }
+    .skill-bar {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      width: 100%;
+
+      .skills {
+        text-align: right;
+        padding-top: 0.6rem;
+        padding-bottom: 0.6rem;
+        color: white;
+      }
+
+      .html {
+        width: 90%;
+        background-color: #4caf50;
+      }
+      .php {
+        width: 80%;
+        background-color: #2980b9;
+      }
+      .css {
+        width: 70%;
+        background-color: #f1c40f;
+      }
+      .javascript {
+        width: 60%;
+        background-color: #f44336;
+      }
+      .sql {
+        width: 55%;
+        background-color: #45aaf2;
+      }
+      .node {
+        width: 35%;
+        background-color: #fc5c65;
+      }
+    }
+  }
+}
