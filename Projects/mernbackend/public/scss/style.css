@@ -420,6 +420,8 @@ section.resume .resume-box p {
 }
 
 section.resume .resume-box a {
+  font-size: 1.8rem;
+  font-family: "Playfair Display SC", serif;
   position: relative;
   font-size: 1.8rem;
   overflow: hidden;
@@ -524,8 +526,7 @@ section.resume .resume-box a:hover span:nth-child(4) {
 }
 
 section.my-work {
-  margin: 1.5rem 0rem;
-  padding: 1rem;
+  padding: 5.5rem 0rem;
   text-align: center;
 }
 
@@ -561,6 +562,347 @@ h1.heading {
   }
   100% {
     text-shadow: 0.5rem 0.2rem 0.1rem #17c0eb;
+  }
+}
+
+section.my-work .work-d .work-img {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: #222222 0.2rem solid;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+section.my-work .work-d .work-img img {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 2s;
+  transition: all 2s;
+}
+
+section.my-work .work-d .work-img:hover img {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+section.my-work .work-d .work-img .details {
+  position: absolute;
+  top: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+section.my-work .work-d .work-img .details h2 {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  font-size: 2.5rem;
+  letter-spacing: 0.1rem;
+}
+
+section.my-work .work-d .work-img .details p {
+  font-family: "ABeeZee", sans-serif;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.8rem;
+  letter-spacing: 0.05rem;
+}
+
+section.my-work .work-d .work-img:hover .details {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+
+.default-btn .glass-btn {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.default-btn .glass-btn a {
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-family: "Playfair Display SC", serif;
+  position: relative;
+  font-size: 1.8rem;
+  overflow: hidden;
+  color: #ffffff;
+  padding: 2.5rem 3rem;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0.8rem 3.2rem 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 0.8rem 3.2rem 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(2rem);
+}
+
+.default-btn .glass-btn a:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.default-btn .glass-btn a:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(rgba(0, 0, 0, 0.1)), to(transparent));
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+
+.default-btn .glass-btn a:hover::after {
+  left: 100%;
+}
+
+.default-btn .glass-btn a span {
+  position: absolute;
+  display: block;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.default-btn .glass-btn a span:nth-child(1) {
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0.1rem;
+  background: #ffffff;
+}
+
+.default-btn .glass-btn a span:nth-child(3) {
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0.1rem;
+  background: #ffffff;
+}
+
+.default-btn .glass-btn a span:nth-child(2) {
+  top: 0;
+  left: 0;
+  width: 0.1rem;
+  height: 0;
+  background: #ffffff;
+}
+
+.default-btn .glass-btn a span:nth-child(4) {
+  bottom: 0;
+  right: 0;
+  width: 0.1rem;
+  height: 0;
+  background: #ffffff;
+}
+
+.default-btn .glass-btn a:hover span:nth-child(1) {
+  width: 100%;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+.default-btn .glass-btn a:hover span:nth-child(3) {
+  width: 100%;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.default-btn .glass-btn a:hover span:nth-child(2) {
+  height: 100%;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
+.default-btn .glass-btn a:hover span:nth-child(4) {
+  height: 100%;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
+section.news-letter {
+  background-color: #1bbc9b;
+  padding-bottom: 5rem;
+  padding-top: 5rem;
+  color: #ffffff;
+}
+
+section.news-letter h3 {
+  font-size: 2.5rem;
+  letter-spacing: 0.05rem;
+  font-family: "ABeeZee", sans-serif;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  line-height: 4rem;
+}
+
+section.news-letter form {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+section.news-letter form input.form-control {
+  height: 4rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  padding: 0.5rem 0.8rem;
+  background: #1bbc9b;
+  border: #fff 0.2rem solid;
+  color: #ffffff !important;
+}
+
+section.news-letter form input.form-control::-webkit-input-placeholder {
+  color: #ffffff;
+  font-family: "ABeeZee", sans-serif;
+}
+
+section.news-letter form input.form-control:-ms-input-placeholder {
+  color: #ffffff;
+  font-family: "ABeeZee", sans-serif;
+}
+
+section.news-letter form input.form-control::-ms-input-placeholder {
+  color: #ffffff;
+  font-family: "ABeeZee", sans-serif;
+}
+
+section.news-letter form input.form-control::placeholder {
+  color: #ffffff;
+  font-family: "ABeeZee", sans-serif;
+}
+
+section.news-letter form input.form-control:focus {
+  background: #1bbc9b;
+  color: #ffffff;
+}
+
+section.news-letter form .btn-newsLetter {
+  font-family: "Audiowide", cursive;
+  height: 4rem;
+  background: transparent;
+  border: #fff 0.2rem solid;
+  color: #ffffff;
+  font-size: 1.8rem;
+  padding: 0.3rem 0.8rem;
+  letter-spacing: 0.1rem;
+  display: block;
+  -webkit-transition: background, color 1s;
+  transition: background, color 1s;
+}
+
+section.news-letter form .btn-newsLetter:hover {
+  background: #ffffff;
+  color: #1bbc9b;
+}
+
+@media (max-width: 768px) {
+  section.news-letter form .btn-newsLetter {
+    width: 100%;
+  }
+}
+
+footer.main-footer {
+  margin-top: auto;
+  background: #162029;
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+  color: #ffffff;
+}
+
+footer.main-footer p.copyright {
+  font-size: 1.6rem;
+}
+
+@media (max-width: 767px) {
+  footer.main-footer p.copyright {
+    text-align: center;
+    margin-bottom: 1.6rem;
+  }
+}
+
+footer.main-footer nav.footer-nav {
+  float: right;
+}
+
+footer.main-footer nav.footer-nav .footer-menu ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer.main-footer nav.footer-nav .footer-menu ul li {
+  display: block;
+  padding-right: 1.6rem;
+  padding-left: 1.6rem;
+  font-size: 1.6rem;
+  border-right: 0.1px solid #ffffff;
+}
+
+footer.main-footer nav.footer-nav .footer-menu ul li:last-child {
+  border-right: none;
+}
+
+footer.main-footer nav.footer-nav .footer-menu ul li a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  footer.main-footer nav.footer-nav .footer-menu ul {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  footer.main-footer nav.footer-nav {
+    text-align: center;
+    float: none !important;
   }
 }
 
