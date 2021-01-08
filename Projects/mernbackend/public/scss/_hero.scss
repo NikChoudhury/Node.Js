@@ -1,104 +1,125 @@
-.heroContent {
-  @include flex-center;
-  width: 100%;
-  height: 75vh;
+section.sec-hero {
+  z-index: 1;
   position: relative;
-  p.header-text {
-    color: #ffffff;
-    margin: 0;
-    font-size: 50px;
-    font-family: $font-four;
-    text-transform: uppercase;
-    // line-height: 2rem;
-    letter-spacing: 0.1rem;
-    span {
-      color: #ecf0f1;
-      letter-spacing: 0.2rem;
-      text-shadow: 0.5rem 0.2rem 0.1rem #17c0eb;
-    }
-  }
-  @media only screen and (max-width: 767px) {
-    p.header-text {
-      font-size: 30px;
-    }
-  }
-  @media only screen and (max-width: 480px) {
-    p.header-text {
-      font-size: 20px;
-    }
-  }
-
-  h2 {
-    color: #ffffff;
-    font-size: 3rem;
-    font-family: $font-six;
-  }
-
-  p.typing-text {
-    position: relative;
-    color: #fff200;
-    margin: 0;
-    font-size: 3.1rem;
-    font-family: $font-seven;
-    text-transform: uppercase;
-    #typewriter {
-      position: relative;
-      margin: 0;
-      padding: 0;
-      // color: transparent;
-      color: #ff3838;
-
-      &:before {
-        content: attr(data-text);
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 1;
-        left: 0;
-        color: #fff200;
-        animation: slide 3s steps(9) infinite;
-        overflow: hidden;
-      }
-
-      @keyframes slide {
-        0% {
-          width: 0%;
-        }
-        50% {
-          width: 100%;
-        }
-        100% {
-          width: 0%;
-        }
-      }
-    }
-  }
-}
-
-// Social Icon
-.social-icon ul li {
-  color: #ffffff;
-  display: inline-block;
-  list-style: none;
-  margin: 0.5rem 0.5rem;
+  width: 100%;
+  height: 100vh;
+  background: url(../images/header-bg.jpg);
+  // background-position: center;
+  background-position: right;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
   font-size: 1.8rem;
+  @include flex-center;
 
-  a {
-    display: flex;
-    width: 35px;
-    height: 35px;
-    background-color: #ff1062;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    z-index: -1;
+  }
+  .heroContent {
+    p.header-text {
+      color: #ffffff;
+      margin: 0;
+      font-size: 50px;
+      font-family: $font-four;
+      text-transform: uppercase;
+      // line-height: 2rem;
+      letter-spacing: 0.1rem;
+      span {
+        color: #ecf0f1;
+        letter-spacing: 0.2rem;
+        text-shadow: 0.5rem 0.2rem 0.1rem #17c0eb;
+      }
+    }
+    @media only screen and (max-width: 767px) {
+      p.header-text {
+        font-size: 30px;
+      }
+    }
+    @media only screen and (max-width: 480px) {
+      p.header-text {
+        font-size: 20px;
+      }
+    }
+
+    h2 {
+      color: #ffffff;
+      font-size: 3rem;
+      font-family: $font-six;
+    }
+
+    p.typing-text {
+      position: relative;
+      color: #fff200;
+      margin: 0;
+      font-size: 3.1rem;
+      font-family: $font-seven;
+      text-transform: uppercase;
+      #typewriter {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        // color: transparent;
+        color: #ff3838;
+
+        &:before {
+          content: attr(data-text);
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 1;
+          left: 0;
+          color: #fff200;
+          animation: slide 3s steps(9) infinite;
+          overflow: hidden;
+        }
+
+        @keyframes slide {
+          0% {
+            width: 0%;
+          }
+          50% {
+            width: 100%;
+          }
+          100% {
+            width: 0%;
+          }
+        }
+      }
+    }
+  }
+
+  // Social Icon
+  .social-icon ul li {
     color: #ffffff;
-    border-radius: 50%;
-    border: 0.5px solid #ffffff;
-    transition: all 0.8s;
-    &:hover {
-      background-color: #ffffff;
-      color: #ff1062;
-      box-shadow: 0 0 0.3rem 0.3rem #222222, 0 0 0 0.6rem #ffffff;
+    display: inline-block;
+    list-style: none;
+    margin: 0.5rem 0.5rem;
+    font-size: 1.8rem;
+
+    a {
+      display: flex;
+      width: 35px;
+      height: 35px;
+      background-color: #ff1062;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: #ffffff;
+      border-radius: 50%;
+      border: 0.5px solid #ffffff;
+      transition: all 0.8s;
+      &:hover {
+        background-color: #ffffff;
+        color: #ff1062;
+        box-shadow: 0 0 0.3rem 0.3rem #222222, 0 0 0 0.6rem #ffffff;
+      }
     }
   }
 }

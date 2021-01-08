@@ -1,0 +1,26 @@
+{{!-- Hamburger Menu Script --}}
+</script>
+<script>
+    const menuBtn = document.querySelector(".burgerBtn");
+    const menu = document.querySelector(".menu");
+    let menuOpen = false;
+    menuBtn.addEventListener("click", () => {
+        if (!menuOpen) {
+            menuBtn.classList.add("open");
+            menu.classList.add("active-menu");
+            menuOpen = true;
+        } else {
+            menuBtn.classList.remove("open");
+            menu.classList.remove("active-menu");
+            menuOpen = false;
+        }
+    });
+</script>
+{{!-- Navbar Scripts --}}
+<script>
+    window.addEventListener("scroll", function () {
+        var currentScrollPos = window.pageYOffset;
+        const navHeader = document.querySelector("nav");
+        navHeader.classList.toggle("sticky-nav", window.scrollY > 0);
+    });
+</script>

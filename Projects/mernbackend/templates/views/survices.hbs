@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header}}
+    <title>Choudhury</title>
+</head>
+
+<body>
+    {{!-- Navbar --}}
+    {{>nav}}
+    {{>hero}}
+    {{>footer}}
+
+    {{!-- External Js Scripts --}}
+    {{>scripts}}
+
+    {{!-- Imp JS --}}
+    {{>js}}
+
+    {{!-- AOS --}}
+    <script src="vendor/AOS/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 160,
+            duration: 700
+        });
+    </script>
