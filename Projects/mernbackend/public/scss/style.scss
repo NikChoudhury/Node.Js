@@ -11,6 +11,9 @@ html,
 body {
   font-size: 62.5%;
   font-family: $font-five;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 // Header-Navbar
@@ -35,6 +38,12 @@ body {
 
 // Footer
 @import "footer";
+
+// Comming Soon
+@import "section_comming-soon";
+
+// Comming Soon
+@import "wapper";
 
 // Media Screen
 @import "media";

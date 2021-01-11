@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header}}
+    <title>Choudhury</title>
+</head>
+
+<body>
+    {{!-- Navbar --}}
+    <style>
+        header.nav-header nav {
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, .9);
+        }
+    </style>
+    {{>nav}}
+    <section class="wapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-12">
+                    <div class="main-content">
+                        <h1>Complete Registration Form using HTML, CSS, Node JS, Express, and MongoDB</h1>
+                        {{#if success}}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{success}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        {{/if}}
+                        {{#if otherErr}}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{otherErr}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        {{/if}}
+                        <form action="/register" class="register-form" id="registerForm" method="POST">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-6">
+                                    <div class="form-group">
+                                        <label for="fname">First Name</label>
+                                        <input type="text" name="fname" id="fname" class="form-control"
+                                            placeholder="First Name">
+                                        <p class="warning text-danger">
+                                            {{#if err}}
+                                            {{err.firstname}}
+                                            {{/if}}
+                                        </p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" id="email" class="form-control"
+                                            placeholder="Email">
+                                        <p class="warning text-danger">
+                                            {{#if err}}
+                                            {{err.email}}
+                                            {{/if}}
+                                        </p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pass">Password</label>
+                                        <input type="text" name="pass" id="pass" class="form-control"
+                                            placeholder="Password">
+                                        <p class="warning text-danger">
+                                            {{#if err}}
+                                            {{err.password}}
+                                            {{/if}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-6">
+                                    <div class="form-group">
+                                        <label for="lname">Last Name</label>
+                                        <input type="text" name="lname" id="lname" class="form-control"
+                                            placeholder="Last Name">
+                                        <p class="warning text-danger">
+                                            {{#if err}}
+                                            {{err.lastname}}
+                                            {{/if}}
+                                        </p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Gender" class="radio d-block">Gender</label>
+                                        <input type="radio" name="gender" id="gender" value="Male">,<span>Male</span>
+                                        <input type="radio" name="gender" id="female" value="Female"><span>Female</span>
+                                        <p class="warning text-danger">
+                                            {{#if err}}
+                                            {{err.gender}}
+                                            {{/if}}
+                                        </p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cpass">Confirm Password</label>
+                                        <input type="text" name="cpass" id="cpass" class="form-control"
+                                            placeholder="Confirm Password">
+                                        <p class="warning text-danger">
+                                            {{#if err}}
+                                            {{err.confirmpassword}}
+                                            {{/if}}
+                                        </p>
+                                    </div>
+                                    <input type="submit" value="Register" class="btn btn-success">
+                                </div>
+
+
+
+                            </div>
+                        </form>
+                        <a href="/signin">Already Have Account Sign In Now</a>
+                    </div>
+
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-12">
+                    <div class="side-content">
+                        <div class="side-content-1">
+                            <h1>Side is under Construction</h1>
+                            <ul>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>Node.Js</li>
+                                <li>SCSS</li>
+                                <li>JS</li>
+                                <li>PHP</li>
+                                <li>MongooDB</li>
+                                <li>MySQL</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="news-letter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <h3>Subscribe To My NewsLetter For News!</h3>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <form action="#" id="formNewsLetter" class="row">
+                        <div class="col-md-8 col-12">
+                            <input type="email" name="email" id="email" class="form-control"
+                                placeholder="Your Email Address">
+                        </div>
+                        <div class="col-md-4 col-12">
+                            <button class="btn btn-newsLetter"><i class="fas fa-paper-plane"></i>
+                                Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{>footer}}
+
+    {{!-- External Js Scripts --}}
+    {{>scripts}}
+
+    {{!-- Imp JS --}}
+    {{>js}}
+
+    {{!-- AOS --}}
+    <script src="vendor/AOS/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 160,
+            duration: 700
+        });
+    </script>

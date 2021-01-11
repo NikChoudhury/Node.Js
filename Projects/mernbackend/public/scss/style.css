@@ -10,6 +10,14 @@ html,
 body {
   font-size: 62.5%;
   font-family: "ABeeZee", sans-serif;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 header.nav-header {
@@ -868,6 +876,7 @@ section.my-work .work-d .work-img:hover .details {
 }
 
 section.news-letter {
+  position: relative;
   background-color: #1bbc9b;
   padding-bottom: 5rem;
   padding-top: 5rem;
@@ -1007,6 +1016,102 @@ footer.main-footer nav.footer-nav .footer-menu ul li a {
     text-align: center;
     float: none !important;
   }
+}
+
+section.comming-soon {
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 10rem;
+  font-size: 1.8rem;
+}
+
+section.comming-soon .main-content .image-div figure {
+  overflow: hidden;
+  position: relative;
+}
+
+section.comming-soon .main-content .image-div figure img {
+  width: 100%;
+  height: auto;
+}
+
+section.comming-soon .main-content .image-div figure figcaption {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+section.comming-soon .main-content .image-div figure figcaption h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-family: "Alfa Slab One", cursive;
+  color: black;
+  text-shadow: 0 5px 0.5rem #c0392b;
+}
+
+section.comming-soon .side-content {
+  padding-top: 2rem;
+}
+
+section.comming-soon .side-content .side-content-1 ul {
+  list-style: inside;
+  padding: 0;
+  margin: 0;
+}
+
+section.wapper {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 10rem;
+  font-size: 1.8rem;
+}
+
+section.wapper .main-content {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+section.wapper .main-content .register-form {
+  margin-top: 1rem;
+  border: 0.5rem solid black;
+  padding: 2rem 0.5rem;
+  background-color: #bdc3c7;
+}
+
+section.wapper .main-content .register-form label {
+  font-family: "ABeeZee", sans-serif;
+}
+
+section.wapper .main-content .register-form input {
+  font-size: 1.6rem;
+  padding: 0.5rem;
+}
+
+section.wapper .side-content {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+section.wapper .side-content .side-content-1 ul {
+  list-style: inside;
+  padding: 0;
+  margin: 0;
 }
 
 @media only screen and (max-width: 600px) {

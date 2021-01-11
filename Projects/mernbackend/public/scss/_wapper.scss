@@ -1,0 +1,35 @@
+section.wapper {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 10rem;
+  font-size: 1.8rem;
+
+  .main-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    .register-form {
+      margin-top: 1rem;
+      border: 0.5rem solid rgba(0, 0, 0, 1);
+      padding: 2rem 0.5rem;
+      background-color: #bdc3c7;
+      label {
+        font-family: $font-five;
+      }
+      input {
+        font-size: 1.6rem;
+        padding: 0.5rem;
+      }
+    }
+  }
+  .side-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    .side-content-1 {
+      ul {
+        list-style: inside;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}

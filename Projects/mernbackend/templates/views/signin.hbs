@@ -15,21 +15,44 @@
         }
     </style>
     {{>nav}}
-    <section class="comming-soon">
+    <section class="wapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-8 col-lg-8 col-md-8 col-12">
                     <div class="main-content">
-                        <div class="image-div">
-                            <figure>
-                                <img src="/images/comming-soon.jpg" alt="">
-                                <figcaption>
-                                    <h1>Site under construction</h1>
-                                </figcaption>
-                            </figure>
+                        <h1>Complete Registration Form using HTML, CSS, Node JS, Express, and MongoDB</h1>
+                        {{#if success}}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{success}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <p><a href='https://www.freepik.com/vectors/background'>Image vector From
-                                www.freepik.com</a></p>
+                        {{/if}}
+                        {{#if otherErr}}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{otherErr}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        {{/if}}
+                        <form action="/signin" class="register-form" id="registerForm" method="POST">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" placeholder="Enter email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                    anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Password">
+                            </div>
+
+                            <input type="submit" value="Sign In" class="btn btn-success">
+                        </form>
                     </div>
 
                 </div>
