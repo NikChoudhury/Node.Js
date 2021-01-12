@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const bcrypt = require('bcrypt');
 //################ Define or Create Schema ################
 registerSchema = new mongoose.Schema({
     firstname:{
@@ -41,7 +42,28 @@ registerSchema = new mongoose.Schema({
         required:[true,"Confirm Password Is Required!!"]
     }
 });
+
+// ################ Define Midleware For Hashing Password ################
+registerSchema.pre('save',async function(next){
+    // console.log(`Without Hashing : ${this.password}`);
+    this.password = await  bcrypt.hash(this.password,12);
+    this.confirmpassword = undefined;
+    // console.log(`With Hashing : ${this.password}`);
+    next();
+});
+
 // ################ Define Model or Collections Creation ################
 const Register = new mongoose.model("Register",registerSchema);
 
 module.exports = Register;
+
+// ####### Bcrypt Pass Technique #######
+/*const securePassword = async(password)=>{
+    // For Hashing
+   const passhass = await  bcrypt.hash(password,12);
+   console.log(passhass);
+    //Compare    
+   const passCheck = await bcrypt.compare(password,'$2b$12$rEfnk/.UFKz/eRxZOW2LOOc8na/CVG.zp1yiYqZk30u2ENJ6FiS..');
+   console.log(passCheck);
+}*/
+// securePassword("Nik")
