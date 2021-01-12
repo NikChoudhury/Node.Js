@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 //################ Define or Create Schema ################
 registerSchema = new mongoose.Schema({
     firstname:{
@@ -45,11 +45,13 @@ registerSchema = new mongoose.Schema({
 
 // ################ Define Midleware For Hashing Password ################
 registerSchema.pre('save',async function(next){
-    // console.log(`Without Hashing : ${this.password}`);
-    this.password = await  bcrypt.hash(this.password,12);
-    this.confirmpassword = undefined;
-    // console.log(`With Hashing : ${this.password}`);
-    next();
+   if (this.isModified('password')) {
+        // console.log(`Without Hashing : ${this.password}`);
+        this.password = await  bcrypt.hash(this.password,12);
+        this.confirmpassword = undefined;
+        // console.log(`With Hashing : ${this.password}`);
+        next();
+   }
 });
 
 // ################ Define Model or Collections Creation ################

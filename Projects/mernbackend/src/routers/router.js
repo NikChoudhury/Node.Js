@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const flash = require('connect-flash');
 const session = require('express-session');
+const bcrypt = require('bcryptjs');
 const router = new express.Router();
 const Register = require("../models/register");
 // ###### Routers ######
@@ -98,7 +99,8 @@ router.post("/signin",async(req,res)=>{
         const email = req.body.email;
         const password = req.body.password;
         const userEmail = await  Register.findOne({email:email});
-        if (userEmail.password === password) {
+        const isMatch = await bcrypt.compare(password,userEmail.password);
+        if (isMatch===true) {
             res.status(201).render("secret");
         }else{
             res.send("Password is Not Matching !!")
