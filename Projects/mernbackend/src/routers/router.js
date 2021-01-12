@@ -89,8 +89,35 @@ router.post("/registerApi",async(req,res)=>{
     } catch (e) {
         res.send(errHandle(e.message));
         // errorFormatter(error);
-      
-        
+    }
+});
+
+// Check Login
+router.post("/signin",async(req,res)=>{
+    try {
+        const email = req.body.email;
+        const password = req.body.password;
+        const userEmail = await  Register.findOne({email:email});
+        if (userEmail.password === password) {
+            res.status(201).render("secret");
+        }else{
+            res.send("Password is Not Matching !!")
+        }
+    } catch (error) {
+        res.status(400).send("Invaild Email !!")
+    }
+});
+
+// Get User Data 
+router.get("/users", async(req,res)=>{
+    try {
+       const readUsers = await Register.find().select({
+        __v:0
+    });
+       res.status(201).send(readUsers);
+    } catch (err) {
+        res.status(400).send(err);
+        throw err;
     }
 });
 
