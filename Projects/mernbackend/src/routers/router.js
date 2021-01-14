@@ -3,7 +3,6 @@ const app = express();
 const flash = require('connect-flash');
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 const router = new express.Router();
 const Register = require("../models/register");
 // ###### Routers ######
@@ -70,7 +69,11 @@ router.post("/register",async(req,res)=>{
 
         //  Midleware For JWT OAuth 
         const token = await registerUser.generateOAuthToken();
-          
+        // Cookies
+        res.cookie("mybiscuit",token,{
+            httpOnly:true,
+            expires: new Date(Date.now() + 8 * 3600000) // cookie will be removed after 8 hours
+        })
         const createUser = await registerUser.save();
         res.status(201).render("register",{
             success:"Successfully Added !!"
@@ -103,6 +106,10 @@ router.post("/signin",async(req,res)=>{
         const email = req.body.email;
         const password = req.body.password;
         const userEmail = await  Register.findOne({email:email});
+
+        //  Midleware For JWT OAuth 
+        const token = await userEmail.generateOAuthToken();
+    
         const isMatch = await bcrypt.compare(password,userEmail.password);
         if (isMatch===true) {
             res.status(201).render("secret");

@@ -1,3 +1,20 @@
+# My Portfolio
+
+## COOKIE
+
+The res.cookie() function is used to set the cookie name to value. The value parameter may be a string or object converted to JSON.
+
+```Node.js
+res.cookie(name, value [, options])
+```
+
+| Example
+
+```Node.js
+res.cookie('name', 'tobi', { domain: '.example.com', path: '/admin', secure: true })
+res.cookie('rememberme', '1', { expires: new Date(Date.now() + 900000), httpOnly: true })
+```
+
 ## Contents
 
 - [Logo](https://logohub.io/)
