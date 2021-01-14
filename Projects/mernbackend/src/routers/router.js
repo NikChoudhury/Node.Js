@@ -3,6 +3,7 @@ const app = express();
 const flash = require('connect-flash');
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const router = new express.Router();
 const Register = require("../models/register");
 // ###### Routers ######
@@ -66,6 +67,9 @@ router.post("/register",async(req,res)=>{
                 password:req.body.pass,
                 confirmpassword:req.body.cpass
             });
+
+        //  Midleware For JWT OAuth 
+        const token = await registerUser.generateOAuthToken();
           
         const createUser = await registerUser.save();
         res.status(201).render("register",{

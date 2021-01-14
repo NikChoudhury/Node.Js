@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 //################ Define or Create Schema ################
 registerSchema = new mongoose.Schema({
     firstname:{
@@ -39,9 +40,26 @@ registerSchema = new mongoose.Schema({
     },
     confirmpassword:{
         type:String,
-        required:[true,"Confirm Password Is Required!!"]
-    }
+    },
+    tokens:[{
+        token:{
+            type:String,
+            required:true
+        }
+    }]
 });
+
+// ################ Define Midleware For Jwt OAuth ################
+registerSchema.methods.generateOAuthToken = async function(){
+    try {
+        const token = jwt.sign({_id:this._id.toString()},"mynameisnikumanichoudhuryhellowordhchczh");
+        this.tokens = this.tokens.concat({token:token});
+        await this.save();
+        return token;
+    } catch (error) {
+        throw error;
+    }
+}
 
 // ################ Define Midleware For Hashing Password ################
 registerSchema.pre('save',async function(next){
