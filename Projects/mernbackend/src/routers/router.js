@@ -5,6 +5,7 @@ const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const router = new express.Router();
 const Register = require("../models/register");
+const auth = require("../middleware/auth");
 // ###### Routers ######
 
 // Navbar Route
@@ -31,6 +32,13 @@ router.get("/register",(req,res)=>{
 
 router.get("/signin",(req,res)=>{
     res.render("signin");
+});
+
+router.get("/secret", auth, (req,res)=>{
+    const user = req.user;
+    res.render("secret",{
+        userdata: user
+    });
 });
 
 // ERROR Formatter
@@ -72,7 +80,8 @@ router.post("/register",async(req,res)=>{
         // Cookies
         res.cookie("mybiscuit",token,{
             httpOnly:true,
-            expires: new Date(Date.now() + 8 * 3600000) // cookie will be removed after 8 hours
+            expires: new Date(Date.now() + 8 * 3600000), // cookie will be removed after 8 hours
+            secure: false
         })
         const createUser = await registerUser.save();
         res.status(201).render("register",{
@@ -111,8 +120,15 @@ router.post("/signin",async(req,res)=>{
         const token = await userEmail.generateOAuthToken();
     
         const isMatch = await bcrypt.compare(password,userEmail.password);
+        // Cookies
+        res.cookie("mybiscuit",token,{
+            httpOnly:true,
+            expires: new Date(Date.now() + 8 * 3600000), // cookie will be removed after 8 hours
+            secure: false //If Https its True
+        })
         if (isMatch===true) {
-            res.status(201).render("secret");
+            // res.status(201).render("secret");
+            res.status(201).redirect("secret");
         }else{
             res.send("Password is Not Matching !!")
         }

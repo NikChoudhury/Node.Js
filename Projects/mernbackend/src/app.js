@@ -5,6 +5,7 @@ const hbs = require('hbs');
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 require('./db/conn');
 const Register = require("./models/register");
@@ -24,7 +25,8 @@ const partialsPath = path.join(__dirname,"../templates/partials");
 // ###### To Get Form Data ######
 // parse application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: false }));
- 
+// Cookie Pareser
+app.use(cookieParser()); 
 // parse application/json
 app.use(express.json());
 
