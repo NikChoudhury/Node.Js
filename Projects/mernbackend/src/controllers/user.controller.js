@@ -37,18 +37,18 @@ exports.userRegistration = async (req, res) => {
             res.cookie("mybiscuit", token, {
                 httpOnly: true,
                 expires: new Date(Date.now() + 8 * 3600000), // cookie will be removed after 8 hours
-                secure: false,
+                secure: true,
             });
-            const createUser = await registerUser.save();
+            const createUser = await registerUser.save().catch(error => { throw error });
             res.status(201).render("register", {
                 success: "Successfully Added !!",
             });
         }
     } catch (error) {
-        // res.status(400).send(error);
-        res.status(200).render("register", {
-            err: errHandle(error.message),
-        });
+        //res.status(400).send(error.message);
+         res.status(200).render("register", {
+             err: error.message,
+         });
     }
 }
 
@@ -66,7 +66,7 @@ exports.userLogin = async (req, res) => {
             res.cookie("mybiscuit", token, {
                 httpOnly: true,
                 expires: new Date(Date.now() + 8 * 3600000), // cookie will be removed after 8 hours
-                secure: false, //If Https its True
+                secure: true, //If Https its True
             });
             res.status(201).redirect("secret");
         } else {
@@ -89,10 +89,10 @@ exports.userLogout = async (req, res) => {
         // });
         //^^^^^^^//
         //Logout For All Device
-        req.user.tokens = [];
-        await req.user.save();
-        res.redirect("signin");
         res.clearCookie("mybiscuit");
+        req.user.tokens = [];
+        await req.user.save().catch(error => { throw error });
+        res.redirect("signin");
     } catch (error) {
         res.status(500).send(error);
     }
