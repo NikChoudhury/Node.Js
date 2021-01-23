@@ -6,6 +6,8 @@ const auth = async (req, res, next) => {
         const token = req.cookies.mybiscuit;
         const verifyUser = jwt.verify(token, process.env.SECRET_KEY);
         const user = await Register.findOne({ _id: verifyUser._id });
+        await Register.findOne({ token: user.tokens[0].token }).catch(error => { throw error });
+        // console.log(userTok);
         req.token = token;
         req.user = user;
         next();

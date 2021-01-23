@@ -44,6 +44,10 @@ router.get("/secret", auth, (req, res) => {
   });
 });
 
+router.get("/weather", (req, res) => {
+  res.status(200).render("weatherApp");
+});
+
 // LogOut
 router.get("/logout", auth, userController.userLogout);
 

@@ -44,20 +44,20 @@ exports.mail_Controller = async function (req, res) {
             subject: "Hello World",
             // mailedBy: "https://choudhury.herokuapp.com/",
             text: "It Works Again",
-            html: mail,
+           html:mail,
 
         };
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
-                res.send(error);
-                // console.log(error);
-                res.status(201).render("index", {
-                    response: {
-                        title: "mail",
-                        code: "warning",
-                        msg: "Something is Worng !!",
-                    },
-                });
+                res.status(400).send(error.message)
+                console.log(error);
+//                 res.status(201).render("index", {
+//                     response: {
+//                         title: "mail",
+//                         code: "warning",
+//                         msg: "Something is Worng !!",
+//                     },
+//                 });
             } else {
                 res.status(201).render("index", {
                     response: {

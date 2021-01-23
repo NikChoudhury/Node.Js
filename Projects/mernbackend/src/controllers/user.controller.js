@@ -38,6 +38,7 @@ exports.userRegistration = async (req, res) => {
                 httpOnly: true,
                 expires: new Date(Date.now() + 8 * 3600000), // cookie will be removed after 8 hours
                 secure: true,
+                sameSite: 'Strict'
             });
             const createUser = await registerUser.save().catch(error => { throw error });
             res.status(201).render("register", {
@@ -46,9 +47,9 @@ exports.userRegistration = async (req, res) => {
         }
     } catch (error) {
         //res.status(400).send(error.message);
-         res.status(200).render("register", {
-             err: error.message,
-         });
+        res.status(200).render("register", {
+            err: error.message,
+        });
     }
 }
 
@@ -67,6 +68,7 @@ exports.userLogin = async (req, res) => {
                 httpOnly: true,
                 expires: new Date(Date.now() + 8 * 3600000), // cookie will be removed after 8 hours
                 secure: true, //If Https its True
+                sameSite: 'Strict'
             });
             res.status(201).redirect("secret");
         } else {
@@ -81,16 +83,17 @@ exports.userLogin = async (req, res) => {
 exports.userLogout = async (req, res) => {
     try {
         res.clearCookie("mybiscuit");
-
-        /* Remove Token From database
-            LogOut For Single Device */
-        // req.user.tokens = req.user.tokens.filter((currToken) => {
-        //     return currToken.token !== req.token;
-        // });
-        //^^^^^^^//
-        //Logout For All Device
-        res.clearCookie("mybiscuit");
-        req.user.tokens = [];
+        if (req.query.all) {
+            //Logout For All Device
+            res.clearCookie("mybiscuit");
+            req.user.tokens = [];
+        } else {
+            /* Remove Token From database
+                LogOut For Single Device */
+            req.user.tokens = req.user.tokens.filter((currToken) => {
+                return currToken.token !== req.token;
+            });
+        }
         await req.user.save().catch(error => { throw error });
         res.redirect("signin");
     } catch (error) {
